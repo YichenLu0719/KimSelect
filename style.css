@@ -5,54 +5,43 @@
 ════════════════════════════════════════════════════ */
 
 :root {
-  /* Core Palette */
-  --color-void: #0b0c0e;
-  --color-abyss: #0e111b;
-  --color-deep-sea: #0d172b;
-  --color-cobalt-panel: #12244f;
-  --color-frosted-lilac: #85a6e9;
-  --color-signal-blue: #2862d7;
-  --color-pulse-violet: #305fbd;
-  --color-aurora-purple: #625fff;
-  --color-plasma-pink: #ff7dda;
-  --color-quartz: #ffffff;
-  --color-ash: #abaebb;
-  --color-mist: #c7c9d1;
-  --color-slate: #3c3f44;
-  --color-obsidian-edge: #172540;
-  --color-inkline: #151e32;
-  --color-sapphire-hairline: #24375a;
+  /* ── 核心調色盤：改為日系大地色、燕麥米白與宣紙白 ── */
+  --color-void: #FAFAFA;       /* 原深色背景 -> 宣紙白 */
+  --color-abyss: #F3F2EE;      /* 原次要背景 -> 燕麥色 */
+  --color-deep-sea: #FFFFFF;   /* 原卡片背景 -> 純白 */
+  --color-cobalt-panel: #FFFFFF; /* 浮出元件背景 */
+  
+  --color-quartz: #2C2C2C;     /* 原主文字(白) -> 墨灰 (避免死黑) */
+  --color-ash: #797670;        /* 原次文字 -> 暖灰 */
+  --color-mist: #A3A09A;
+  --color-slate: #8F8C86;
 
-  /* Typography */
-  --font-display: 'Figtree', ui-sans-serif, system-ui, sans-serif;
-  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  /* 邊線顏色：極淺的暖灰色，降低邊界強硬感 */
+  --color-obsidian-edge: #EAE8E3;
+  --color-inkline: #EAE8E3;
+  --color-sapphire-hairline: #D9D7D2;
 
-  /* Spacing */
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-40: 40px;
-  --spacing-64: 64px;
-  --spacing-80: 80px;
+  /* 點綴色：捨棄霓虹紫/粉，改為低飽和的大地枯木色系 */
+  --color-frosted-lilac: #6B665E; /* 標籤文字色 */
+  --color-signal-blue: #8C7A6B; 
+  --color-pulse-violet: #5C5852; 
+  --color-aurora-purple: #4A4742; 
+  --color-plasma-pink: #B56545;   /* 愛心收藏的高光色：磚紅色 */
 
-  /* Layout */
-  --page-max: 1200px;
-  --section-gap: 80px;
+  /* ── 字體：明體與黑體的交響 ── */
+  --font-display: 'Noto Serif TC', serif;
+  --font-body: 'Noto Sans TC', sans-serif;
 
-  /* Radius */
-  --r-sm: 2px;
-  --r-md: 8px;
-  --r-lg: 12px;
-  --r-full: 9999px;
+  /* ── 圓角：日系偏好俐落的直角或微圓角 ── */
+  --r-sm: 0px;
+  --r-md: 2px;
+  --r-lg: 4px;      /* 原為 12px 大圓角 */
+  --r-full: 4px;    /* 將原本全圓角的按鈕改為方形微圓角 */
 
-  /* Shadows */
-  --shadow-card: rgba(0,0,0,0.5) 0px 4px 30px 0px;
-  --shadow-float: rgba(0,0,0,0.34) 0px 20px 35px 0px, rgba(0,0,0,0.25) 0px 4px 13px 0px;
-  --shadow-md: rgba(0,0,0,0.2) 0px 3px 16px 0px;
+  /* ── 陰影：趨近於無，講求扁平與光影自然感 ── */
+  --shadow-card: rgba(0,0,0,0.03) 0px 4px 20px 0px;
+  --shadow-float: rgba(0,0,0,0.04) 0px 10px 30px 0px;
+  --shadow-md: rgba(0,0,0,0.02) 0px 2px 10px 0px;
 }
 
 /* ──────────────────── RESET & BASE ──────────────────── */
@@ -1478,4 +1467,97 @@ ul { list-style: none; }
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+/* =========================================
+   日系風格覆寫 (Japanese Minimalist Overrides)
+========================================= */
+
+/* 1. 隱藏科技感光暈 */
+.aurora-purple, .aurora-pink {
+  display: none !important;
+}
+
+/* 2. 頂部導覽列：改為清透白底，移除厚重模糊感 */
+.nav-header {
+  background: rgba(250, 250, 250, 0.95);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid var(--color-inkline);
+}
+.cart-count {
+  /* 購物車數字底色改為低調的深灰 */
+  background: var(--color-quartz);
+}
+
+/* 3. 按鈕優化：日系按鈕多為無邊框純色，或細線框 */
+.btn-primary {
+  background: var(--color-quartz);
+  color: #FFF; /* 按鈕文字用純白 */
+  letter-spacing: 0.1em;
+}
+.btn-ghost {
+  border: 1px solid var(--color-slate);
+  color: var(--color-quartz);
+}
+.btn-ghost:hover {
+  background: rgba(0,0,0,0.03);
+  border-color: var(--color-quartz);
+}
+/* 選單按鈕 (全部/上身/下身) */
+.filter-btn {
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+.filter-btn.active {
+  background: var(--color-quartz);
+  color: #FFF;
+  border-color: var(--color-quartz);
+}
+
+/* 4. 跑馬燈：移除原本突兀的黑條背景，改為細緻的上下邊線 */
+.marquee-strip {
+  background: var(--color-void);
+  border-top: 1px solid var(--color-inkline);
+  border-bottom: 1px solid var(--color-inkline);
+}
+
+/* 5. 標題與排版：增加字距 (Letter-spacing)，這是日系質感的關鍵 */
+.section-heading {
+  letter-spacing: 0.05em;
+  font-weight: 400; /* 明體不需要太粗 */
+}
+.eyebrow {
+  letter-spacing: 0.2em;
+}
+.product-name, .cart-item-name {
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* 6. 商品卡片圖片：去掉邊框的生硬感，讓圖片呼吸 */
+.product-img-wrap {
+  border-radius: var(--r-lg) var(--r-lg) 0 0;
+}
+.product-card {
+  box-shadow: none;
+}
+.product-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-float);
+}
+
+/* 7. Footer 微調 */
+.footer {
+  background: var(--color-abyss);
+}
+.footer-socials a {
+  background: var(--color-void);
+}
+
+/* 8. 修正 Lookbook 文字疊加層 (亮色模式需要確保圖片上的文字讀得清楚) */
+.look-overlay {
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+}
+.look-label, .look-title {
+  color: #FFF; /* 強制覆寫回白色 */
 }
