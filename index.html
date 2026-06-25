@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>金select</title>
+  <title>金select — 選物的哲學</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -11,9 +11,6 @@
 </head>
 <body>
 
-  <!-- ═══════════════════════════════════════════
-       NAV
-  ═══════════════════════════════════════════ -->
   <header class="nav-header" id="nav">
     <div class="container nav-inner">
       <a href="#" class="nav-logo">金<span>select</span></a>
@@ -39,9 +36,6 @@
     </div>
   </header>
 
-  <!-- ═══════════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════════ -->
   <section class="hero" id="home">
     <div class="container hero-inner">
       <div class="hero-text">
@@ -74,9 +68,6 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       MARQUEE STRIP
-  ═══════════════════════════════════════════ -->
   <div class="marquee-strip">
     <div class="marquee-track">
       <span>精選選物</span><span>·</span>
@@ -94,9 +85,6 @@
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════
-       COLLECTIONS FILTER + GRID
-  ═══════════════════════════════════════════ -->
   <section class="section collections" id="collections">
     <div class="container">
       <div class="section-header">
@@ -112,27 +100,15 @@
         <button class="filter-btn" data-filter="accessories">配件</button>
       </div>
       <div class="product-grid" id="productGrid">
-        <!-- Products injected by JS -->
-      </div>
+        </div>
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       BRAND STORY
-  ═══════════════════════════════════════════ -->
   <section class="section story" id="story">
-    <div class="aurora-purple story-aurora"></div>
     <div class="container story-inner">
       <div class="story-visual">
         <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=700&q=80" alt="品牌故事" class="story-img" />
-        <div class="story-stat-card">
-          <p class="stat-num">500+</p>
-          <p class="stat-label">精選品項</p>
-        </div>
-        <div class="story-stat-card story-stat-card--2">
-          <p class="stat-num">08</p>
-          <p class="stat-label">年的選物經驗</p>
-        </div>
+
       </div>
       <div class="story-text">
         <p class="eyebrow">About Us</p>
@@ -172,9 +148,6 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       LOOKBOOK
-  ═══════════════════════════════════════════ -->
   <section class="section lookbook" id="lookbook">
     <div class="container">
       <div class="section-header">
@@ -215,9 +188,6 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       FEATURES STRIP
-  ═══════════════════════════════════════════ -->
   <section class="section features-strip">
     <div class="container">
       <div class="features-grid">
@@ -254,12 +224,7 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       NEWSLETTER / CONTACT
-  ═══════════════════════════════════════════ -->
   <section class="section contact" id="contact">
-    <div class="aurora-purple contact-aurora"></div>
-    <div class="aurora-pink contact-aurora-pink"></div>
     <div class="container contact-inner">
       <p class="eyebrow">Stay Connected</p>
       <h2 class="section-heading">訂閱選品週報</h2>
@@ -272,9 +237,6 @@
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════════ -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
@@ -319,23 +281,16 @@
     </div>
   </footer>
 
-  <!-- ═══════════════════════════════════════════
-       PRODUCT MODAL
-  ═══════════════════════════════════════════ -->
   <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
     <div class="modal" id="modal">
       <button class="modal-close" id="modalClose" aria-label="關閉">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div class="modal-inner" id="modalContent">
-        <!-- Injected by JS -->
-      </div>
+        </div>
     </div>
   </div>
 
-  <!-- ═══════════════════════════════════════════
-       CART DRAWER
-  ═══════════════════════════════════════════ -->
   <div class="cart-overlay" id="cartOverlay"></div>
   <aside class="cart-drawer" id="cartDrawer">
     <div class="cart-header">
@@ -362,7 +317,6 @@
     </div>
   </aside>
 
-  <!-- Toast notification -->
   <div class="toast" id="toast"></div>
 
   <script src="app.js"></script>
