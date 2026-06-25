@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>金select — 選物的哲學</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAV
+  ═══════════════════════════════════════════ -->
+  <header class="nav-header" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">金<span>select</span></a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#collections">選品</a>
+        <a href="#story">品牌故事</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+      <div class="nav-right">
+        <button class="cart-btn" id="cartBtn" aria-label="購物車">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="選單">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="aurora-purple"></div>
+    <div class="aurora-pink"></div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">SS 2025 Collection</p>
+        <h1 class="hero-headline">選物，<br/>是一種態度</h1>
+        <p class="hero-sub">從世界各地精心挑選的服飾與配件，<br/>每一件都有它存在的理由。</p>
+        <div class="hero-ctas">
+          <button class="btn-primary" onclick="scrollToSection('collections')">瀏覽選品</button>
+          <button class="btn-ghost" onclick="scrollToSection('story')">品牌故事</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-stack">
+          <div class="hero-img hero-img--back">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="時裝展示" />
+          </div>
+          <div class="hero-img hero-img--front">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500&q=80" alt="精選服飾" />
+          </div>
+          <div class="hero-badge">
+            <span>New</span>
+            <p>2025 Spring</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>向下探索</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       MARQUEE STRIP
+  ═══════════════════════════════════════════ -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>精選選物</span><span>·</span>
+      <span>限量企劃</span><span>·</span>
+      <span>日系美學</span><span>·</span>
+      <span>慢時尚</span><span>·</span>
+      <span>質感生活</span><span>·</span>
+      <span>獨立品牌</span><span>·</span>
+      <span>精選選物</span><span>·</span>
+      <span>限量企劃</span><span>·</span>
+      <span>日系美學</span><span>·</span>
+      <span>慢時尚</span><span>·</span>
+      <span>質感生活</span><span>·</span>
+      <span>獨立品牌</span><span>·</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       COLLECTIONS FILTER + GRID
+  ═══════════════════════════════════════════ -->
+  <section class="section collections" id="collections">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Our Selection</p>
+        <h2 class="section-heading">本季選品</h2>
+        <p class="section-sub">每一件入選的作品，都經過我們反覆的穿搭實驗。</p>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">全部</button>
+        <button class="filter-btn" data-filter="tops">上身</button>
+        <button class="filter-btn" data-filter="bottoms">下身</button>
+        <button class="filter-btn" data-filter="outerwear">外套</button>
+        <button class="filter-btn" data-filter="accessories">配件</button>
+      </div>
+      <div class="product-grid" id="productGrid">
+        <!-- Products injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       BRAND STORY
+  ═══════════════════════════════════════════ -->
+  <section class="section story" id="story">
+    <div class="aurora-purple story-aurora"></div>
+    <div class="container story-inner">
+      <div class="story-visual">
+        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=700&q=80" alt="品牌故事" class="story-img" />
+        <div class="story-stat-card">
+          <p class="stat-num">500+</p>
+          <p class="stat-label">精選品項</p>
+        </div>
+        <div class="story-stat-card story-stat-card--2">
+          <p class="stat-num">08</p>
+          <p class="stat-label">年的選物經驗</p>
+        </div>
+      </div>
+      <div class="story-text">
+        <p class="eyebrow">About Us</p>
+        <h2 class="section-heading" style="text-align:left;">不是每件衣服<br/>都值得被擁有</h2>
+        <p class="story-body">「金select」成立於 2017 年，起源於創辦人對服裝的一個執念：在這個過度生產的時代，真正值得擁有的單品越來越難找。</p>
+        <p class="story-body">我們每季走訪日本、歐洲與本地設計師工作室，從數千件作品中，只帶回那些在五年後依然讓你慶幸買下的東西。</p>
+        <div class="story-values">
+          <div class="value-item">
+            <div class="value-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <p class="value-title">精選品質</p>
+              <p class="value-desc">每件商品親身試穿，只選我們自己會穿的。</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+            </div>
+            <div>
+              <p class="value-title">永續選品</p>
+              <p class="value-desc">優先選擇對環境友善、小批量生產的品牌。</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+            </div>
+            <div>
+              <p class="value-title">穿搭哲學</p>
+              <p class="value-desc">不追流行，只選能陪你很久的風格。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       LOOKBOOK
+  ═══════════════════════════════════════════ -->
+  <section class="section lookbook" id="lookbook">
+    <div class="container">
+      <div class="section-header">
+        <p class="eyebrow">Lookbook 2025</p>
+        <h2 class="section-heading">穿搭靈感</h2>
+        <p class="section-sub">當衣服找到對的主人，就會產生不同的化學反應。</p>
+      </div>
+      <div class="lookbook-grid">
+        <div class="lookbook-item lookbook-item--tall">
+          <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80" alt="Look 01" />
+          <div class="look-overlay">
+            <p class="look-label">Look 01</p>
+            <p class="look-title">城市極簡</p>
+          </div>
+        </div>
+        <div class="lookbook-item">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=600&q=80" alt="Look 02" />
+          <div class="look-overlay">
+            <p class="look-label">Look 02</p>
+            <p class="look-title">後街美學</p>
+          </div>
+        </div>
+        <div class="lookbook-item">
+          <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=600&q=80" alt="Look 03" />
+          <div class="look-overlay">
+            <p class="look-label">Look 03</p>
+            <p class="look-title">日系輕鬆</p>
+          </div>
+        </div>
+        <div class="lookbook-item lookbook-item--wide">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Look 04" />
+          <div class="look-overlay">
+            <p class="look-label">Look 04</p>
+            <p class="look-title">秋日層次</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FEATURES STRIP
+  ═══════════════════════════════════════════ -->
+  <section class="section features-strip">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+          </div>
+          <h3 class="feature-title">全台免運</h3>
+          <p class="feature-desc">訂單滿 $2,000 全台灣本島免運費配送。</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="feature-title">七天鑑賞期</h3>
+          <p class="feature-desc">收到商品後七天內，不滿意可無條件退換。</p>
+        </div>
+        <div class="feature-card feature-card--highlight">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+          </div>
+          <h3 class="feature-title">親身把關</h3>
+          <p class="feature-desc">每件入選商品皆由團隊實際穿搭測試，確保品質。</p>
+          <span class="highlight-badge">我們的承諾</span>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="feature-title">每週更新</h3>
+          <p class="feature-desc">每週三定期上新，保持選品的新鮮度與多樣性。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       NEWSLETTER / CONTACT
+  ═══════════════════════════════════════════ -->
+  <section class="section contact" id="contact">
+    <div class="aurora-purple contact-aurora"></div>
+    <div class="aurora-pink contact-aurora-pink"></div>
+    <div class="container contact-inner">
+      <p class="eyebrow">Stay Connected</p>
+      <h2 class="section-heading">訂閱選品週報</h2>
+      <p class="section-sub">每週精選 5 件值得關注的新品，以及我們的穿搭思考。不濫發，只說有意義的事。</p>
+      <form class="subscribe-form" onsubmit="handleSubscribe(event)">
+        <input type="email" placeholder="your@email.com" class="email-input" required />
+        <button type="submit" class="btn-primary">訂閱週報</button>
+      </form>
+      <p class="subscribe-note">已有 3,200+ 位讀者，隨時可以取消訂閱。</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="nav-logo">金<span>select</span></a>
+        <p class="footer-tagline">選物的哲學，生活的態度。</p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="LINE">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.04 2 11c0 2.9 1.55 5.49 3.97 7.24L5 21l3.08-1.56C9.29 19.79 10.62 20 12 20c5.52 0 10-4.04 10-9S17.52 2 12 2zm5.5 12.5h-3v-1.5h1.5V10h1.5v4.5zm-4.5 0h-1.5V10H13v4.5zm-4 0H7.5v-4.5H9v3H10.5v1.5z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links-group">
+        <h4>選品</h4>
+        <a href="#">上身系列</a>
+        <a href="#">下身系列</a>
+        <a href="#">外套系列</a>
+        <a href="#">配件系列</a>
+      </div>
+      <div class="footer-links-group">
+        <h4>關於我們</h4>
+        <a href="#">品牌故事</a>
+        <a href="#">選品哲學</a>
+        <a href="#">Lookbook</a>
+        <a href="#">媒體報導</a>
+      </div>
+      <div class="footer-links-group">
+        <h4>服務說明</h4>
+        <a href="#">配送說明</a>
+        <a href="#">退換貨政策</a>
+        <a href="#">尺寸指南</a>
+        <a href="#">聯絡客服</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2025 金select. All rights reserved.</p>
+        <p>以慢時尚的精神，對抗快速消費。</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       PRODUCT MODAL
+  ═══════════════════════════════════════════ -->
+  <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true">
+    <div class="modal" id="modal">
+      <button class="modal-close" id="modalClose" aria-label="關閉">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div class="modal-inner" id="modalContent">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       CART DRAWER
+  ═══════════════════════════════════════════ -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>購物車</h3>
+      <button class="cart-close" id="cartClose" aria-label="關閉購物車">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <div class="cart-empty" id="cartEmpty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        <p>購物車是空的</p>
+        <span>快去挑選你喜歡的商品吧</span>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>小計</span>
+        <span id="cartTotal">$0</span>
+      </div>
+      <button class="btn-primary cart-checkout-btn">前往結帳（展示用）</button>
+      <p class="cart-note">* 此為展示網站，不含實際金流。</p>
+    </div>
+  </aside>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
